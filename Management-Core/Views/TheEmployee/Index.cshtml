@@ -1,0 +1,35 @@
+﻿@using Management_Core.Models
+@model List<Employee>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>City</th>
+        <th>Sector</th>
+        <th>Delete</th>
+        <th>Update</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.EmployeeID</td>
+            <td>@x.Name</td>
+            <td>@x.Surname</td>
+            <td>@x.City</td>
+            <td>@x.Sectors.SectorName</td>
+            
+            <td><a href="/Departments/deleteDepartment/@x.EmployeeID" class="btn btn-danger">sil</a></td>
+            <td><a href="/Departments/getDepartment/@x.EmployeeID" class="btn btn-success">Update</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/Departments/newDepartment" class="btn btn-primary">Add New Employee</a>
