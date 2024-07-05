@@ -1,0 +1,29 @@
+﻿@using Management_Core.Models
+@model List<Sector>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Sector</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Details</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.SectorID</td>
+            <td>@x.SectorName</td>
+            <td><a href="/Departments/deleteDepartment/@x.SectorID" class="btn btn-danger">sil</a></td>
+            <td><a href="/Departments/getDepartment/@x.SectorID" class="btn btn-success">Update</a></td>
+            <td><a href="#" class="btn btn-default" style="background-color:bisque">Details</a></td>
+        </tr>
+    }
+</table>
+<a href="/Default/newSector" class="btn btn-primary">Add New Sector</a>
