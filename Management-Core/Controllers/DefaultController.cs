@@ -24,5 +24,26 @@ namespace Management_Core.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult deleteSector(int id)
+        {
+            var dep = c.Sectors.Find(id);
+            c.Sectors.Remove(dep);
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        public IActionResult getSector(int id)
+        {
+            var depart = c.Sectors.Find(id);
+            return View("getSector", depart);
+        }
+
+        public IActionResult updateSector(Sector s)
+        {
+            var dep = c.Sectors.Find(s.SectorID);
+            dep.SectorName = s.SectorName;
+            c.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -1,0 +1,22 @@
+﻿@model Management_Core.Models.Sector
+@{
+    ViewData["Title"] = "getSector";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h1>getSector</h1>
+
+
+
+@using (Html.BeginForm("updateSector", "Default", FormMethod.Post))
+{
+    <b>Sector ID</b>
+    @Html.TextBoxFor(x => x.SectorID, new { @class = "form-control" })
+    <br />
+
+    <b>Sector Name</b>
+    @Html.TextBoxFor(x => x.SectorName, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:bisque "> Update Sector</button>
+}
+
