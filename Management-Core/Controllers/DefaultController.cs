@@ -45,5 +45,12 @@ namespace Management_Core.Controllers
             c.SaveChanges();
             return RedirectToAction("Index");
         }
+        public IActionResult sectorDetails(int id)
+        {  
+            var results = c.Employees.Where(x=>x.SectorID==id).ToList();
+            var sname = c.Sectors.Where(x => x.SectorID == id).Select(y => y.SectorName.FirstOrDefault();
+            ViewBag.secname = sname;  
+            return View(results);
+        }
     }
 }
