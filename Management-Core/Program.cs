@@ -1,7 +1,17 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.Cookie.Name = "NetCoreMvc.Auth";
+    options.LoginPath = "/Login/logIn";
+    options.AccessDeniedPath = "/Login/logIn";
+
+});//authorize codes
 
 var app = builder.Build();
 
@@ -18,6 +28,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();//to check authorize
 app.UseAuthorization();
 
 app.MapControllerRoute(

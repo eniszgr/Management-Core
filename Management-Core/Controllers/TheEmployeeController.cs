@@ -1,4 +1,5 @@
 ﻿using Management_Core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ namespace Management_Core.Controllers
     public class TheEmployeeController : Controller
     {
         Context c = new Context();
+        [Authorize]
         public IActionResult Index()
         {
             var results = c.Employees.Include(x=>x.Sectors).ToList();//Eager Loading -> Includes Sectors data associated with each employee in the query

@@ -12,5 +12,7 @@ namespace Management_Core.Models
         //DbSet calls it plural. For example if you want to use Sector from Context, you have to call Sectors
         public DbSet<Sector> Sectors { get; set; }
         public DbSet<Employee> Employees { get; set; }
+
+        public DbSet<Admin> Admins { get; set; }
     }
 }
