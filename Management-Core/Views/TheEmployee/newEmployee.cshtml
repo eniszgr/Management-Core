@@ -1,0 +1,22 @@
+﻿@model Management_Core.Models.Employee
+@{
+    ViewData["Title"] = "newEmployee";
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<br />
+<form class="form-group" method="post">
+    <b>Employee Name</b>
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    <br />
+    <b>Employee Surname</b>
+    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+    <b>City</b>
+    @Html.TextBoxFor(x => x.City, new { @class = "form-control" })
+    <br />
+    <b>Sector </b>
+    @Html.DropDownListFor(x=>x.Sectors.SectorID,(List<SelectListItem>)ViewBag.sector , new {@class ="form-control"})
+    <br />
+    <button class="btn btn-info"> Add New Sector</button>
+</form>
+

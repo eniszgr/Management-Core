@@ -12,6 +12,6 @@ namespace Management_Core.Models
         public string City { get; set; }    
         public int SectorID { get; set; }
 
-        public Sector Sectors { get; set; }
+        public Sector Sectors { get; set; } 
     }
 }
