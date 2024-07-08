@@ -19,7 +19,7 @@ namespace Management_Core.Controllers
         [HttpGet]
         public IActionResult newEmployee()
         {
-            List<SelectListItem>sectors = (from x in c.Sectors.ToList()   //dropdownlist datas
+            List<SelectListItem>sectors = (from x in c.Sectors.ToList()   //dropdownlist datas linq query
                                            select new SelectListItem
                                            {
                                                Text = x.SectorName,
